@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 m-5">
+        <h4 style="color:blue;align:center">{{productadded}}</h4>
+      <h2 style="text-align: center;">Add Product</h2>
+      <form
+        action="/admin/add-products"
+        method="post"
+        enctype="multipart/form-data" id="forms"
+      >
+        <div class="form-group">
+          <label for="ProductName"><strong>Product Name</strong> </label>
+          <input
+            type="text"
+            class="form-control"
+            id="productName"
+            placeholder="Name"
+            name="name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="ProductCategory"><strong>Product Category</strong></label>
+          <input
+            type="text"
+            class="form-control"
+            id="productCategory"
+            placeholder="Category"
+            name="category"
+          />
+        </div>
+        <div class="form-group">
+          <label for="ProductPrice"><strong>Price</strong></label>
+          <input
+            type="text"
+            class="form-control"
+            id="productPrice"
+            placeholder="Price"
+            name="price"
+          />
+        </div>
+        <div class="form-group">
+          <label for="productDescription"><strong>Description</strong></label>
+          <textarea
+            class="form-control"
+            id="productDescription"
+            rows="3"
+            name="description"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="productImage" class="form-label"><strong>Product Image</strong></label>
+          <input class="form-control" type="file" id="productImage" name="Image" />
+
+        </div>
+        <div class="form-group m-2">
+          <button type="submit" class="btn btn-primary" >Submit</button>
+        <div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#forms").validate({
+      rules:{
+        name:{
+          required:true,
+          
+        },
+        category:{
+           required:true,
+           
+
+        },
+        price:{
+          required:true,
+          number:true
+        },
+        description:{
+          required:true,
+        },
+        Image:{
+          required:true,
+          extension: "jpg"
+        }
+
+      },
+      messages: {
+        Image: {
+            required: "Please upload file.",
+            extension: "Please upload file in these format only (jpg)."
+        }
+    },
+    })
+    
+  })
+   /*function validateForm() {
+  var isValid = true;
+  $('#forms').each(function() {
+    if ( $(this).val() == null )
+    {
+      console.log((this).name)
+      isValid = false;
+      alert("Please fill all the fields");
+
+    }
+  });
+  
+  
+}*/
+
+</script>
+
+

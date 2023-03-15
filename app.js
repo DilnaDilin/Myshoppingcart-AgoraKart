@@ -3,13 +3,18 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const {engine:hbs}=require('express-handlebars'); 
+var fileupload=require('express-fileupload');
+
 
 var adminRouter = require('./routes/admin');
 var userRouter = require('./routes/user');
 
+
 var app = express();
+
 const db=require('./config/connection');
-const {engine:hbs}=require('express-handlebars');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,6 +27,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+
 db.connect((err)=>{
   if(err){
     console.log("Problem in database Connection"+err)
@@ -29,9 +37,18 @@ db.connect((err)=>{
     console.log("Successfully connected to the database to the port 27017");
   }
 });
-
-app.use('/', userRouter);
+var session=require('express-session');
+app.use(session({
+  secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+  saveUninitialized:true,
+  cookie: { maxAge: 600000},
+  resave: false 
+}));
+app.use(fileupload());
 app.use('/admin', adminRouter);
+app.use('/', userRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

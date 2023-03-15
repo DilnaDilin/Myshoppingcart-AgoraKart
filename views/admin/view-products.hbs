@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row m-5">
+    <div class="text-end">
+      <a href="/admin/add-products" class="btn btn-success ml-3">Add Product</a>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 p-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"> No.</th>
+            <th scope="col">Item</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+            <th scope="col">description</th>
+            <th scope="col">Image</th>
+            <th scope="col">Edit Option</th>
+            <th scope="col">Delete Option</th>
+          </tr>
+
+        </thead>
+        <tbody>
+          {{#each products}}
+            <tr>
+              <td>{{@index}}</td>
+              <td>{{this.name}}</td>
+              <td>Rs. {{this.price}}</td>
+              <td>{{this.category}}</td>
+              <td>{{this.description}}</td>
+              <td><img
+                  src="/images/product-images/{{this._id}}.jpg"
+                  alt=""
+                  style="width:60px;height:60px"
+                /></td>
+              <td><button class="btn btn-primary">Edit</button></td>
+              <td><button class="btn btn-danger">Delete</button></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

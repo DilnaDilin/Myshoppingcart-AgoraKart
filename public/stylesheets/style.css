@@ -1,3 +1,6 @@
+.body{
+  padding: 0;
+}
 /*admin login*/
 body {
     background-color: #fff;
@@ -9,12 +12,12 @@ body {
   }
   
   .intro-section {
-    background-image: url(https://i.ibb.co/t2tbbh6/pexels-luis-quintero-2471234.jpg);
+    background-image: url(/images/common-images/back.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     padding: 75px 95px;
-    min-height: 100vh;
+    min-height: 82vh;
     display: -webkit-box;
     display: flex;
     -webkit-box-orient: vertical;

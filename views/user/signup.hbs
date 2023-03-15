@@ -1,0 +1,98 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="intro-content-wrapper">
+
+    </div>
+    <div class="col-sm-6 col-md-7 intro-section">
+
+      <div class="brand-wrapper p-5 m-5 pl-4 ml-5">
+        <h1 class="intro-title">
+          Welcome to AgoraKart !
+        </h1>
+        <img
+          src="/images/common-images/icon.jpg"
+          class="img-fluid border border-4 rounded-circle"
+          alt="..."
+          style="width:300px;height:150px"
+        />
+
+      </div>
+
+    </div>
+    <div class="col-sm-6 col-md-5 form-section">
+      <div class="login-wrapper">
+        <h2 class="login-title">Create an account</h2>
+        <form action="/signup" method="POST" id="usersignup">
+          <div class="form-group">
+            <label for="email" class="sr-only">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="form-control"
+              placeholder="First and Last Name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" class="sr-only">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="form-control"
+              placeholder="Email"
+            />
+          </div>
+          <div class="form-group mb-3">
+            <label for="password" class="sr-only">Password</label>
+
+            {{!<span id="message" style="color:red"> </span>}}
+            <br /><br />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="form-control"
+              placeholder="Password"
+            />
+            <div id="pass" style="display:none; color:red"><p>Password must
+                contain min 8 characters with one Capital, one Small and one
+                Number</p></div>
+            <div id="message" style="display:none">
+              <h5>Password must contain the following:</h5>
+              <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+              <p id="capital" class="invalid">A
+                <b>capital (uppercase)</b>
+                letter</p>
+              <p id="number" class="invalid">A <b>number</b></p>
+              <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <label for="reppassword" class="sr-only">Repeat Password</label>
+            <input
+              type="password"
+              name="reppassword"
+              id="reppassword"
+              class="form-control"
+              placeholder="Repeat Password"
+            />
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-5">
+            <input
+              type="submit"
+              value="Sign Up"
+              name=""
+              id=""
+              onsubmit="return verifyPassword()"
+              class="btn btn-primary"
+            />
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/javascripts/usersignupvalidation.js"></script>
